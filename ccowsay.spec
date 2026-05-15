@@ -35,9 +35,9 @@ and renders an ASCII cow template below it.
 %doc %_docdir/%name/README
 
 %changelog
-* Thu May 14 2026 usam  0.1.0-alt2
+* Thu May 14 2026 usam <malchevskijsa@basealt.ru> 0.1.0-alt2
 - Added autotools build system.
 - Switched package build to autotools.
 
-* Mon May 04 2026 usam  0.1.0-alt1
+* Mon May 04 2026 usam <malchevskijsa@basealt.ru> 0.1.0-alt1
 - Initial C cowsay AltLinux build.
