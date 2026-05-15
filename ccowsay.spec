@@ -1,30 +1,31 @@
 Name: ccowsay
 Version: 0.1.0
-Release: alt1
+Release: alt2
+
 Summary: Minimal C implementation of cowsay
+
 License: GPL-3.0-or-later
 Group: Applications/Text
 Url: https://github.com/UsamG1t/ccowsay
-Source0: %{name}-%{version}.tar
 
-BuildRequires: gcc
+Source0: %name-%version.tar.gz
+
+BuildRequires: autoconf automake gcc make
 
 %description
-ccowsay prints a user-provided message in a speech (or thought)
-bubble and renders an ASCII cow below it.
+ccowsay prints a user-provided message in a speech or thought bubble
+and renders an ASCII cow template below it.
 
 %prep
 %setup
 
 %build
-%{__cc} %{optflags} -DDEFAULT_COWDIR='"%_datadir/%name/cows"' \
-    -o ccowsay src/*.c
+%autoreconf
+%configure
+%make_build
 
 %install
-install -Dpm755 ccowsay %buildroot%_bindir/ccowsay
-install -d %buildroot%_datadir/%name/cows
-install -pm644 cows/*.cow %buildroot%_datadir/%name/cows/
-install -Dpm644 README %buildroot%_docdir/%name/README
+%makeinstall_std
 
 %files
 %_bindir/ccowsay
@@ -34,5 +35,9 @@ install -Dpm644 README %buildroot%_docdir/%name/README
 %doc %_docdir/%name/README
 
 %changelog
+* Thu May 14 2026 usam <malchevskijsa@basealt.ru> 0.1.0-alt2
+- Added autotools build system.
+- Switched package build to autotools.
+
 * Mon May 04 2026 usam <malchevskijsa@basealt.ru> 0.1.0-alt1
 - Initial C cowsay AltLinux build.
