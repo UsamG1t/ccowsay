@@ -1,7 +1,3 @@
-##
-## The non-flaming sheep.
-##
-$the_cow = <<EOC
   $thoughts
    $thoughts
        __     
@@ -10,4 +6,3 @@ $the_cow = <<EOC
            (\@\@\@\@\@\@\@\@)
            `YY~~~~YY'
             ||    ||
-EOC
