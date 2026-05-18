@@ -1,19 +1,70 @@
 ccowsay
 =======
-This program displays all of its arguments in a speech bubble.
-With your choice of animal/person/thing underneath it. Or in
-other words this program is a re-make of the famous Perl
-program ``cowsay"
+ccowsay displays a message in a speech or thought bubble and renders
+an ASCII cow template below it.
 
-Man Page
---------
 Usage:
-    The flags should be the first set of arguments.
-    ccowsay <flag(s)> Sentence to say
 
-Flags:
-    -h or --help    - Displays this help text
-    -l or --list    - List all cowfiles
-    -c or --cow     - Specify cowfile
-    -e or --eyes    - Specify character used for the eyes. Must be ONE character!
-    -t or --thought - Thought bubble
+    ccowsay [options] <message>
+
+With no message, read standard input.
+
+Options:
+
+    -h, --help           Show this help
+    -l, --list           List available cows
+    -f, --file <cow>     Select cow template
+    -c, --cow <cow>      Alias for -f
+    -e, --eyes <xx>      Set two eye characters
+    -T, --tongue <xx>    Set two tongue characters
+    -t, --thought        Render a thought bubble
+    -n, --no-wrap        Preserve input lines
+    -W, --wrap <cols>    Wrap message at column count
+    -b -d -g -p -s -w -y Face modes
+
+Cow templates are plain text files. The renderer replaces $eyes,
+$tongue, and $thoughts while printing them.
+
+Cow path: CCOWSAY_COWPATH, then COWPATH, then the compiled default cow
+directory.
+
+Examples:
+
+```console
+$ ccowsay Hello ALT Linux
+ _________________
+< Hello ALT Linux >
+ -----------------
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+```
+
+```console
+$ CCOWSAY_COWPATH=./cows ccowsay -f tux "Linux is here"
+ _______________
+< Linux is here >
+ ---------------
+   \
+    \
+        .--.
+       |o_o |
+       |:_/ |
+      //   \ \
+     (|     | )
+    /'\_   _/`\
+    \___)=(___/
+```
+
+```console
+$ CCOWSAY_COWPATH=./cows ccowsay -t -e "bd" -f small "I am thinking"
+ _______________
+( I am thinking )
+ ---------------
+       o   ,__,
+        o  (bd)____
+           (__)    )\
+              ||--|| *
+```

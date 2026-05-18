@@ -1,6 +1,6 @@
 Name: ccowsay
-Version: 0.1.0
-Release: alt4
+Version: 0.1.2
+Release: alt1
 
 Summary: Minimal C implementation of cowsay
 
@@ -41,17 +41,17 @@ make check
 %doc %_docdir/%name/README
 
 %changelog
-* Mon May 18 2026 usam  0.1.0-alt4
+* Mon May 18 2026 usam <malchevskijsa@basealt.ru> 0.1.2-alt1
 - Added cowthink utility and cow rendering tests.
 - Added Check/checkmk based library tests.
 
-* Fri May 15 2026 usam  0.1.0-alt3
+* Fri May 15 2026 usam <malchevskijsa@basealt.ru> 0.1.1-alt1
 - Added libtool library with bundled cow templates.
 - Added automake tests and enabled package check.
 
-* Thu May 14 2026 usam  0.1.0-alt2
+* Thu May 14 2026 usam <malchevskijsa@basealt.ru> 0.1.0-alt1
 - Added autotools build system.
 - Switched package build to autotools.
 
-* Mon May 04 2026 usam  0.1.0-alt1
+* Mon May 04 2026 usam <malchevskijsa@basealt.ru> 0.1.0-alt1
 - Initial C cowsay AltLinux build.
